@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
-use App\Http\Controllers\homeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +29,7 @@ Route::get("/logout",[authController::class,"logout"])->name('logout');
 
 Route::get("/home",[homeController::class,"index"]);
 
-Route::get("/superadmin",[homeController::class,"superadmin"]);
 
-//Route::get("/show",[authController::class,"show"]);
 
 
 ?>

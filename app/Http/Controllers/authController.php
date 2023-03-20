@@ -18,14 +18,14 @@ public function postregister(Request $re){
 //dd($re);
    $val=$re->validate([
    'name' =>'required',
-   'email' =>'required',
+   'email' =>'required'|'email',
    'password' =>'required',
   
 ]);
 //dd($val);
 
   //$users= users :: create($val);
-  $users=new user();
+  $users=new user($val);
   $users->name= $re->name;
   $users->email= $re->email;
   $users->password= $re->password;
@@ -43,19 +43,21 @@ public function login()
      //dd($r);
      if(Auth::attempt($r))
      {
-      return redirect('home');}
-     else{return redirect('login');
+      return redirect('home');
    }
+     else
+   {
+      return redirect('login');
+   }
+
    }
    public function logout()
    {
       Auth::logout();
       return redirect('login');
    }
-//    public function show(){
 
-//  $users=DB::table('users')->get();
 
-// }
-}
+ }
+
 ?>
